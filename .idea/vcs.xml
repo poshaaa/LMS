@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LMS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/frontend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/frontend/frontend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/lms_frontend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/lms_frontend — копия" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/lms_frontend-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/lms_frontend/lms_frontend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/lms_api/lms_frontend/node_modules" vcs="Git" />
+  </component>
+</project>
