@@ -7,14 +7,13 @@ import axios from 'axios';
 const baseUrl='http://127.0.0.1:8000/api';
 function TeacherMycourses(){
 	const [courseData,setCourseData]=useState([]);
-	
+
 	const teacherId=localStorage.getItem('teacherId')
-	console.log(teacherId);
 
    useEffect(()=>{
     document.title='Мои курсы | LMS ULSTU';
 	try{
-		axios.get(baseUrl+'/teacher-courses/1')
+		axios.get(baseUrl+'/teacher-courses/'+teacherId)
 		.then((res)=>{
 			setCourseData(res.data);
 		});
@@ -22,6 +21,9 @@ function TeacherMycourses(){
 		console.log(error);
 	}
 },[]);
+
+	// console.log(courseData);
+
 
 	return(
      <div className="container mt-4 ">
@@ -42,12 +44,17 @@ function TeacherMycourses(){
             					</tr>
             				</thead>
             				<tbody>
-            					<td>Алгоритмы и структуры данных</td>
-            					<td><Link to="/">Шишкин В.В.</Link></td>
-            					<td>
-            						<button className="btn btn-danger btn-sm active">Удалить</button>
-									<Link className="btn btn-success btn-sm active ms-2" to="/teacher-add-chapter/2">Добавить файлы</Link>
-            					</td>
+								{courseData.map((course,index) =>
+									<tr>
+										<td><Link to="/all-chapters/1">{course.title}</Link></td>
+										<td><Link to="/">{course.teacher}</Link></td>
+										<td>
+											<Link className="btn btn-dark text-white btn-sm active ms-2" to="/edit-course/1"><i className="bi bi-pencil-square"></i></Link>
+											<Link className="btn btn-success text-white btn-sm active ms-2" to={'/teacher-add-chapter/'+course.id}><i class="bi bi-file-earmark-plus"></i></Link>
+											<button className="btn btn-danger btn-sm active ms-2"><i className="bi bi-trash3-fill"></i></button>
+										</td>
+									</tr>
+								)}
             				</tbody>
             			</table>
             		</div>

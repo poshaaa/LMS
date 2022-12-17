@@ -47,7 +47,6 @@ function TeacherRegister() {
     teacherFormData.append("email", teacherData.email)
     teacherFormData.append("password", teacherData.password)
     teacherFormData.append("qualification", teacherData.qualification)
-    teacherFormData.append("mobile_number", teacherData.mobile_number)
     axios.post(baseUrl, teacherFormData).then((response) => {
       setteacherData({
         'full_name': '',
@@ -55,7 +54,6 @@ function TeacherRegister() {
         'email': '',
         'password': '',
         'qualification': '',
-        'mobile_number': '',
         'status': 'success'
       });
       setteacherLoginStatus(true)
@@ -98,10 +96,6 @@ function TeacherRegister() {
                 <div className="mb-3">
                   <label className="form-label">Квалификация</label>
                   <input value={teacherData.qualification} onChange={handleChange} name="qualification" type="text" className="form-control" aria-describedby="emailHelp" />
-                </div>
-                <div className="mb-3">
-                  <label className="form-label">Номер телефона</label>
-                  <input value={teacherData.mobile_number} onChange={handleChange} name="mobile_number" type="text" className="form-control" aria-describedby="emailHelp" />
                 </div>
                 <button onClick={submitForm} type="submit" className="btn btn-primary">Зарегистрироваться</button>
               </form>
