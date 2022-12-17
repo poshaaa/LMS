@@ -7,7 +7,6 @@ class Teacher(models.Model):
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     qualification = models.CharField(max_length=100)
-    mobile_number = models.CharField(max_length=100)
 
     class Meta:
         verbose_name = 'Преподаватель'
@@ -42,15 +41,30 @@ class Course(models.Model):
     def __str__(self):
         return self.title
 
+#Часть курса
+class Chapter(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    title = models.CharField(max_length=150)
+    descriprion = models.TextField()
+    video = models.FileField(upload_to='chapter_videos/', null=True)
+    remarks = models.TextField(null=True)
+
+    class Meta:
+        verbose_name = 'Материал курса'
+        verbose_name_plural = 'Материалы курса'
+        ordering = ['id']
+    def __str__(self):
+        return self.title
+
 #Студент
 class Student(models.Model):
     full_name = models.CharField(max_length=100)
-    teacher_profile_img = models.ImageField(blank=True)
+    student_profile_img = models.ImageField(blank=True)
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     group = models.CharField(max_length=100)
-    mobile_number = models.CharField(max_length=100)
-    necessary_categories = models.TextField()
+    necessary_categories = models.CharField(max_length=100, null=True)
+    studylevel = models.CharField(max_length=100, null=True)
 
     class Meta:
         verbose_name = 'Студент'
@@ -58,4 +72,4 @@ class Student(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        return self.title
+        return self.full_name
