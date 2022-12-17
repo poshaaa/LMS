@@ -12,9 +12,9 @@ function ImgHome() {
         </h4>
         </div>
           {/* <Stickers/> */}
-        <div className="row align-items-center progress">
+        {/* <div className="row align-items-center progress">
           <div className="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
-        </div> 
+        </div>  */}
       </div>
     </div>
     // <div className="container-fluid">

@@ -2,6 +2,8 @@ import {Link} from 'react-router-dom';
 
 function Header() {
   const teacherLoginStatus=localStorage.getItem('teacherLoginStatus')
+  const studentLoginStatus = localStorage.getItem('studentLoginStatus')
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">
@@ -33,11 +35,15 @@ function Header() {
                 Пользователь
               </a>
               <ul className="dropdown-menu">
+              {studentLoginStatus!='true' && 
+              <>
                 <li><Link className="dropdown-item" to="/user-login">Вход</Link></li>
                 <li><Link className="dropdown-item" to="/user-register">Регистрация</Link></li>
+              </>
+              }
                 <li><Link className="dropdown-item" to="/user-personalcard">Личный кабинет</Link></li>
                 <li><hr className="dropdown-divider"/></li>
-                <li><Link className="dropdown-item" to="/user-logout">Выйти</Link></li>
+                <li><Link className="dropdown-item" to="/logout">Выйти</Link></li>
               </ul>
             </li>
           </div>

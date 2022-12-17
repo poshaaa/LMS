@@ -8,6 +8,7 @@ import Mycourses  from './User/Mycourses';
 import Favoritecourses from './User/Favoritecourses';
 import Profilesettings from './User/Profilesettings';
 import Changepassword from './User/Changepassword';
+import Logout from './User/Logout';
 //Преподаватель
 import TeacherLogin from './Teacher/TeacherLogin';
 import TeacherLogout from './Teacher/TeacherLogout';
@@ -21,6 +22,10 @@ import TeacherProfilesettings from './Teacher/TeacherProfilesettings';
 import TeacherChangepassword from './Teacher/TeacherChangepassword';
 import TeacherDetail from './TeacherDetail'
 
+//Курсы
+import CourseChapters from './CourseChapters';
+import EditChapter from './Teacher/EditChapter.js';
+import EditCourse from './Teacher/EditCourse.js';
 //Список главной страницы
 import ImgHome from './ImgHome';
 import CourseDetail from './CourseDetail';
@@ -42,6 +47,9 @@ function Main() {
         <Route path="/detail/:course_id" element={<CourseDetail />} />
         <Route path="/category/:category_slug" element={<CategoryCourses />} />
         <Route path="/all-courses" element={<Allcourses />} />
+        <Route path="/all-chapters/:course_id" element={<CourseChapters />} />
+        <Route path="/edit-chapter/:chapter_id" element={<EditChapter />} />
+        <Route path="/edit-course/:course_id" element={<EditCourse />} />
         <Route path="/Teachers" element={<Teachers />} />
         <Route path="/teacherdetail/:teacher_id" element={<TeacherDetail />} />
         <Route path="/user-register" element={<Register />} />
@@ -54,6 +62,7 @@ function Main() {
         <Route path="/teacher-register" element={<TeacherRegister />} />
         <Route path="/teacher-login" element={<TeacherLogin />} />
         <Route path="/teacher-logout" element={<TeacherLogout />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/teacher-personalcard" element={<TeacherPersonalcard />} />
         <Route path="/teacher-my-courses" element={<TeacherMycourses />} />
         <Route path="/teacher-add-courses" element={<TeacherAddcourses />} />
